@@ -6,7 +6,7 @@
   padding: 10px;
   height: 12%;
   width: 100%;
-  background-color: #1d767c;
+  background-color: #a15898;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -32,7 +32,7 @@
 }
 
 .toggle {
-  background-color: #1d767c;
+  background-color: #a15898;
 }
 
 @media (max-width: 600px) {
