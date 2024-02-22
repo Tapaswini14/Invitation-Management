@@ -1,0 +1,56 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  padding: 10px;
+  height: 12%;
+  width: 100%;
+  background-color: #1d767c;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  color: #fff;
+}
+
+.tags ul li {
+  list-style: none;
+  display: flex;
+  float: right;
+}
+
+.toggle {
+  background-color: #1d767c;
+}
+
+@media (max-width: 600px) {
+  .title {
+    position: absolute;
+    top: 1%;
+    right: 6%;
+    color: #fff;
+  }
+
+  .profile {
+    width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mat-toolbar {
+    padding: 10px;
+    height: 13%;
+  }
+}

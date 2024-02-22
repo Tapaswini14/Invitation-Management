@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css";
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/assets/fonts/Poppins/Poppins-Regular.ttf") format("ttf");
+
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body {
+  height: 100%;
+}
+
+.mat-typography {
+  margin: 0;
+  font-family: "Poppins", sans-serif !important;
+  background-color: #f0fffb;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.button-container .btn {
+  width: 100% !important; /* Set the desired width */
+  height: 60px; /* Set the desired height */
+  margin: auto;
+  background-color: #1d767c;
+  color: white;
+}
+
+.nextButton {
+  background-color: #1d767c !important;
+  color: white !important;
+  width: 150px;
+  margin-left: 5px;
+}
+
+.text {
+  color: #1d767c;
+  border: 1px solid #1d767c;
+  margin-left: 5px !important;
+  width: 150px;
+}
+
+select {
+  width: 66.5%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.mat-step-header.cdk-program-focused:hover,
+.mat-step-header.cdk-keyboard-focused:hover,
+.mat-step-header:hover:not([aria-disabled]),
+.mat-step-header:hover[aria-disabled="false"],
+.mat-step-header.mat-step-header-active {
+  background-color: inherit; /* You can set this to whatever color you want to use */
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .text {
+    color: #1d767c;
+    border: 1px solid #1d767c;
+    width: 150px;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .nextButton {
+    background-color: #1d767c !important;
+    color: white !important;
+    margin-top: 5px;
+    width: 150px;
+    margin-left: 5px;
+  }
+
+  .heading {
+    margin-top: 12%;
+  }
+}

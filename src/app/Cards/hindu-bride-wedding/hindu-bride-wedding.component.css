@@ -1,0 +1,108 @@
+.product-card1 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.text {
+  color: #1d767c;
+  border: 1px solid #1d767c;
+}
+
+.edit {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1d767c;
+  color: white;
+  font-weight: 400;
+}
+
+/* .form-row {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  text-align: left;
+  flex: 1;
+}
+
+p {
+  flex: 2;
+}
+
+.form-row1 {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.box1 {
+  align-items: center;
+}  */
+
+.choose_file {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 5% !important;
+  border-radius: 10px;
+}
+
+input[type="text"],
+[type="email"],
+[type="file"],
+[type="number"],
+[type="date"],
+[type="time"] {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-left: 16px;
+}
+
+/* Add this CSS to your stylesheet */
+.mat-horizontal-stepper-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-step-header {
+  width: 100%;
+}
+
+.mat-step-header-ripple {
+  display: none; /* Remove ripple effect if not needed */
+}
+
+@media (max-width: 600px) {
+  .mat-horizontal-stepper-header-container {
+    align-items: flex-start;
+    /* Adjust alignment for smaller screens */
+  }
+
+  .mat-step-header {
+    text-align: left; /* Align step labels to the left */
+  }
+}

@@ -1,0 +1,11 @@
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-top: 8%;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    margin-top: 10%;
+  }
+}

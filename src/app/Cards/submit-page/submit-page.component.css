@@ -1,0 +1,22 @@
+.product-card1 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 50%;
+  height: 50%;
+  background-color: #1d767c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  border: 1px #ccc solid;
+  padding: 5px;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .product-card1 {
+    width: 80% !important;
+  }
+}

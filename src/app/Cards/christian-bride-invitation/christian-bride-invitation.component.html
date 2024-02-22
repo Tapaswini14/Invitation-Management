@@ -1,0 +1,679 @@
+<div class="container heading">
+    <div class="row">
+        <h2 class="fw-bold">Christian Wedding Invitation (Bride)</h2>
+    </div>
+</div>
+<div class="container product-card1" style="margin-bottom: 10%">
+    <mat-vertical-stepper [linear]="false" class="mt-3" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup" (ngSubmit)="createInvitation()">
+                <ng-template matStepLabel>Billing Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4 mt-2">
+                        <label for="name">Name(as per bill) :</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="name" name="name" formControlName="biller_name" />
+                        <span
+                            *ngIf="(firstFormGroup.controls['biller_name'].touched || submitted) && firstFormGroup.controls['biller_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="firstFormGroup.controls['biller_name'].errors['required']">
+                                Biller Name is required
+                            </span>
+                            <span *ngIf="firstFormGroup.controls['biller_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="firstFormGroup.controls['biller_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="firstFormGroup.controls['biller_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isFirstFormValid()" [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup" (ngSubmit)="submitBrideDetails()">
+                <ng-template matStepLabel>Bride Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Bride Name :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="bride_name" name="bride_name" formControlName="bride_name" />
+                        <span
+                            *ngIf="(secondFormGroup.controls['bride_name'].touched || submitted) && secondFormGroup.controls['bride_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="secondFormGroup.controls['bride_name'].errors['required']">
+                                Bride Name is required
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Nick Name<small>(Optional)</small> : </label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="bride_nick_name" name="bride_nick_name"
+                            formControlName="bride_nick_name" />
+                        <span
+                            *ngIf="(secondFormGroup.controls['bride_nick_name'].touched || submitted) && secondFormGroup.controls['bride_nick_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="secondFormGroup.controls['bride_nick_name'].errors['required']">
+                                Bride Nick Name is required
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_nick_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_nick_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_nick_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="relation_with_Parents">Relationship with Parents :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <select class="form-select" id="relation_with_Parents" name="relation_with_Parents"
+                            formControlName="relation_with_Parents" aria-label="Default select example">
+                            <option selected></option>
+                            <option value="1">Only Daughter</option>
+                            <option value="2">Elder Daughter</option>
+                            <option value="3">Eldest Daughter</option>
+                            <option value="4">Youngest Daughter</option>
+                            <option value="5">Younger Daughter</option>
+                            <option value="6">Second Daughter</option>
+                            <option value="7">Third Daughter</option>
+                        </select>
+                        <span
+                            *ngIf="(secondFormGroup.controls['relation_with_Parents'].touched || submitted) && secondFormGroup.controls['relation_with_Parents'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="secondFormGroup.controls['relation_with_Parents'].errors['required']">
+                                Relation with Parents is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Father's Name :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="father_name" name="father_name" formControlName="father_name" />
+                        <span
+                            *ngIf="(secondFormGroup.controls['father_name'].touched || submitted) && secondFormGroup.controls['father_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="secondFormGroup.controls['father_name'].errors['required']">
+                                Father Name is required
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['father_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['father_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['father_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Mother's Name : </label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="mother_name" name="mother_name" formControlName="mother_name" />
+                        <span
+                            *ngIf="(secondFormGroup.controls['mother_name'].touched || submitted) && secondFormGroup.controls['mother_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="secondFormGroup.controls['mother_name'].errors['required']">
+                                Mother Name is required
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['mother_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['mother_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['mother_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="address">Bride Address :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" id="bride_address" formControlName="bride_address"
+                            rows="5"></textarea>
+                        <span
+                            *ngIf="(secondFormGroup.controls['bride_address'].touched || submitted) && secondFormGroup.controls['bride_address'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="secondFormGroup.controls['bride_address'].errors['required']">
+                                Address is required
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_address'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="secondFormGroup.controls['bride_address'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span
+                                *ngIf="secondFormGroup.controls['bride_address'].hasError('specialCharacterAtBeginning')"
+                                class="text-danger text-end d-block">
+                                No special characters at the beginning are allowed
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isSecondFormValid()" [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup" (ngSubmit)="submitGroomDetails()">
+                <ng-template matStepLabel>Groom Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Groom Name :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="groom_name" name="groom_name" formControlName="groom_name" />
+                        <span
+                            *ngIf="(thirdFormGroup.controls['groom_name'].touched || submitted) && thirdFormGroup.controls['groom_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="thirdFormGroup.controls['groom_name'].errors['required']">
+                                Groom Name is required
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Nick Name<small>(Optional)</small> : </label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="groom_nick_name" name="groom_nick_name"
+                            formControlName="groom_nick_name" />
+                        <span
+                            *ngIf="(thirdFormGroup.controls['groom_nick_name'].touched || submitted) && thirdFormGroup.controls['groom_nick_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="thirdFormGroup.controls['groom_nick_name'].errors['required']">
+                                Groom Nick Name is required
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_nick_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_nick_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_nick_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="relation_with_Parents">Relationship with Parents :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <select class="form-select" id="relation_with_Parents" name="relation_with_Parents"
+                            formControlName="relation_with_Parents" aria-label="Default select example">
+                            <option selected></option>
+                            <option value="1">Only Son</option>
+                            <option value="2">Elder Son</option>
+                            <option value="3">Eldest Son</option>
+                            <option value="4">Youngest Son</option>
+                            <option value="5">Younger Son</option>
+                            <option value="6">Second Son</option>
+                            <option value="7">Third Son</option>
+                        </select>
+                        <span
+                            *ngIf="(thirdFormGroup.controls['relation_with_Parents'].touched || submitted) && thirdFormGroup.controls['relation_with_Parents'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="thirdFormGroup.controls['relation_with_Parents'].errors['required']">
+                                Relation with Parents is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Father's Name :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="father_name" name="father_name" formControlName="father_name" />
+                        <span
+                            *ngIf="(thirdFormGroup.controls['father_name'].touched || submitted) && thirdFormGroup.controls['father_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="thirdFormGroup.controls['father_name'].errors['required']">
+                                Father Name is required
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['father_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['father_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['father_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Mother's Name : </label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="mother_name" name="mother_name" formControlName="mother_name" />
+                        <span
+                            *ngIf="(thirdFormGroup.controls['mother_name'].touched || submitted) && thirdFormGroup.controls['mother_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="thirdFormGroup.controls['mother_name'].errors['required']">
+                                Mother Name is required
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['mother_name'].hasError('invalidUsername')"
+                                class="text-danger text-end d-block">
+                                Invalid Name format (only letters allowed)
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['mother_name'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['mother_name'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="address">Groom Address :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" id="groom_address" formControlName="groom_address"
+                            rows="5"></textarea>
+                        <span
+                            *ngIf="(thirdFormGroup.controls['groom_address'].touched || submitted) && thirdFormGroup.controls['groom_address'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="thirdFormGroup.controls['groom_address'].errors['required']">
+                                Address is required
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_address'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="thirdFormGroup.controls['groom_address'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span
+                                *ngIf="thirdFormGroup.controls['groom_address'].hasError('specialCharacterAtBeginning')"
+                                class="text-danger text-end d-block">
+                                No special characters at the beginning are allowed
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isSecondFormValid()" [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="fourthFormGroup">
+            <form (ngSubmit)="uploadImage()" [formGroup]="fourthFormGroup">
+                <ng-template matStepLabel>Upload Images (Optional)</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-row mt-3">
+                            <div class="choose_file">
+                                <input type="file" #fileInput (change)="onFileSelected($event)" multiple />
+                                <div class="icon">
+                                    <mat-icon>add_box</mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="fifthFormGroup">
+            <form (ngSubmit)="weddingInvitationdetails()" [formGroup]="fifthFormGroup">
+                <ng-template matStepLabel>Invitation Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Bible Verse Date & Time(Optional):</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="date" name="bible_date" formControlName="bible_date"
+                            placeholder="Select your date">
+                        <span
+                            *ngIf="(fifthFormGroup.controls['bible_date'].touched || submitted) && fifthFormGroup.controls['bible_date'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['bible_date'].errors['required']">
+                                Date is required
+                            </span>
+                        </span>
+                        <input type="time" class="mt-2" name="bible_time" formControlName="bible_time"
+                            placeholder="Select your time">
+                        <span
+                            *ngIf="(fifthFormGroup.controls['bible_time'].touched || submitted) && fifthFormGroup.controls['bible_time'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['bible_time'].errors['required']">
+                                Time is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Bible Verse Venue(Optional) :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" id="bible_venue" formControlName="bible_venue"
+                            rows="5"></textarea>
+                        <span
+                            *ngIf="(fifthFormGroup.controls['bible_venue'].touched || submitted) && fifthFormGroup.controls['bible_venue'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['bible_venue'].errors['required']">
+                                Venue is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Wedding Date & Time:</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="date" name="wedding_date" formControlName="wedding_date"
+                            placeholder="Select your date">
+                        <span
+                            *ngIf="(fifthFormGroup.controls['wedding_date'].touched || submitted) && fifthFormGroup.controls['wedding_date'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['wedding_date'].errors['required']">
+                                Date is required
+                            </span>
+                        </span>
+                        <input type="time" class="mt-2" name="wedding_time" formControlName="wedding_time"
+                            placeholder="Select your time">
+                        <span
+                            *ngIf="(fifthFormGroup.controls['wedding_time'].touched || submitted) && fifthFormGroup.controls['wedding_time'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['wedding_time'].errors['required']">
+                                Time is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Wedding Venue :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" id="wed_venue" formControlName="wedding_venue"
+                            rows="5"></textarea>
+                        <span
+                            *ngIf="(fifthFormGroup.controls['wedding_venue'].touched || submitted) && fifthFormGroup.controls['wedding_venue'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['wedding_venue'].errors['required']">
+                                Venue is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Reception Date & Time:</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="date" class="form-control" name="reception_date" formControlName="reception_date"
+                            placeholder="Select your date">
+                        <span
+                            *ngIf="(fifthFormGroup.controls['reception_date'].touched || submitted) && fifthFormGroup.controls['reception_date'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['reception_date'].errors['required']">
+                                Date is required
+                            </span>
+                        </span>
+                        <input type="time" class="mt-2" name="reception_time" formControlName="reception_time"
+                            placeholder="Select your time">
+                        <span
+                            *ngIf="(fifthFormGroup.controls['reception_time'].touched || submitted) && fifthFormGroup.controls['reception_time'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['reception_time'].errors['required']">
+                                Time is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Reception Type :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <select class="form-select" id="reception_type" formControlName="reception_type">
+                            <option value=""></option>
+                            <option value="1">Lunch</option>
+                            <option value="2">Dinner</option>
+                        </select>
+                        <span
+                            *ngIf="(fifthFormGroup.controls['reception_type'].touched || submitted) && fifthFormGroup.controls['reception_type'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['reception_type'].errors['required']">
+                                Type is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="date">Reception Venue :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" id="reception_venue" formControlName="reception_venue"
+                            rows="5"></textarea>
+                        <span
+                            *ngIf="(fifthFormGroup.controls['reception_venue'].touched || submitted) && fifthFormGroup.controls['reception_venue'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="fifthFormGroup.controls['reception_venue'].errors['required']">
+                                Venue is required
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isFourthFormValid()" [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="sixthFormGroup">
+            <form (ngSubmit)="notesInvitation()" [formGroup]="sixthFormGroup">
+                <ng-template matStepLabel>Notes Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <label for="greeting">Greeting :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" formControlName="greeting" id="haldi_venue" rows="5"></textarea>
+                        <span
+                            *ngIf="(sixthFormGroup.controls['greeting'].touched || submitted) && sixthFormGroup.controls['greeting'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="sixthFormGroup.controls['greeting'].errors['required']">
+                                Greeting is required
+                            </span>
+                            <span *ngIf="sixthFormGroup.controls['greeting'].hasError('specialCharacterAtBeginning')"
+                                class="text-danger text-end d-block">
+                                No special characters at the beginning are allowed
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Who is Inviting(Parents/Grand Parents/Others) :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="inviter_name" formControlName="inviter_name" name="inviter_name" />
+                        <span
+                            *ngIf="(sixthFormGroup.controls['inviter_name'].touched || submitted) && sixthFormGroup.controls['inviter_name'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="sixthFormGroup.controls['inviter_name'].errors['required']">
+                                Inviter Name is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Inviter Name 1 (Optional):</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="invitee_name1" formControlName="invitee_name1" name="invitee_name1" />
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="name">Inviter Name 2 (Optional):</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="text" id="invitee_name2" formControlName="invitee_name2" name="invitee_name2" />
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isFifthFormValid()" [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="seventhFormGroup">
+            <form (ngSubmit)="contactInvitation()" [formGroup]="seventhFormGroup">
+                <ng-template matStepLabel>Contact Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <label for="address">RSVP(Name & Address) :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" formControlName="address" id="rsvp" rows="5"></textarea>
+                        <span
+                            *ngIf="(seventhFormGroup.controls['address'].touched || submitted) && seventhFormGroup.controls['address'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="seventhFormGroup.controls['address'].errors['required']">
+                                Address is required
+                            </span>
+                            <span *ngIf="seventhFormGroup.controls['address'].hasError('numericOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="seventhFormGroup.controls['address'].hasError('specialOnlyUsername')"
+                                class="text-danger text-end d-block">
+                                Must be alphanumeric
+                            </span>
+                            <span *ngIf="seventhFormGroup.controls['address'].hasError('specialCharacterAtBeginning')"
+                                class="text-danger text-end d-block">
+                                No special characters at the beginning are allowed
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <label for="phone">Phone Number :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <input type="number" id="phone" formControlName="phone" name="phone" />
+                        <span
+                            *ngIf="(seventhFormGroup.controls['phone'].touched || submitted) && seventhFormGroup.controls['phone'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="seventhFormGroup.controls['phone'].errors['required']">
+                                Phone Number is required
+                            </span>
+                            <span *ngIf="seventhFormGroup.controls['phone'].hasError('invalidPhoneNumber')"
+                                class="text-danger text-end d-block">
+                                Invalid phone number format (10 digits required)
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isSixthFormValid()" [disabled]="isNextButtonDisabled()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="eigthFormGroup">
+            <form (ngSubmit)="specificInvitation()" [formGroup]="eigthFormGroup">
+                <ng-template matStepLabel>Specific Details</ng-template>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <label for="specific_info">Any Other Specific Request/Details :</label>
+                    </div>
+                    <div class="col-lg-6 mt-2">
+                        <textarea class="form-control" formControlName="specific_info" id="rsvp" rows="5"></textarea>
+                        <span
+                            *ngIf="(eigthFormGroup.controls['specific_info'].touched || submitted) && eigthFormGroup.controls['specific_info'].errors"
+                            class="text-danger text-end d-block">
+                            <span *ngIf="eigthFormGroup.controls['specific_info'].errors['required']">
+                                Specific Information is required
+                            </span>
+                            <span
+                                *ngIf="eigthFormGroup.controls['specific_info'].hasError('specialCharacterAtBeginning')"
+                                class="text-danger text-end d-block">
+                                No special characters at the beginning are allowed
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn text" matStepperPrevious>Previous</button>
+                    <button class="btn nextButton" mat-button matStepperNext type="submit"
+                        [disabled]="!isSeventhFormValid()" [disabled]="isNextButtonDisabled()">Submit</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-vertical-stepper>
+</div>

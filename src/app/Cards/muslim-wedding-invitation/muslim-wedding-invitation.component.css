@@ -1,0 +1,17 @@
+.product-card1 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.text {
+  color: #1d767c;
+  border: 1px solid #1d767c;
+}
+
+@media (max-width: 600px) {
+  .product-card1 {
+    margin-top: 20%;
+  }
+}

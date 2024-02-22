@@ -1,0 +1,19 @@
+<div class="container product-card1" style="margin-bottom: 10%; margin-top: 5%;">
+    <div class="row">
+        <div style="border-bottom: #ccc solid 1px;">
+            <h1 class="fw-bold text-left mt-3">Products</h1>
+        </div>
+        <div class="col-lg-6 mt-4">
+            <label for="ritual">Select Ritual:</label>
+        </div>
+        <div class="col-lg-6 mt-4">
+            <select class="form-select" name="ritual" [formControl]="selectedRitualControl">
+                <option [value]="ritual.ritual_id" *ngFor="let ritual of items">{{ritual.ritual_name}}</option>
+            </select>
+        </div>
+        <div class="text-end mt-4 mb-1">
+            <button class="btn nextButton" (click)="onRitualSelect()"
+                [disabled]="!selectedRitualControl.value">Go</button>
+        </div>
+    </div>
+</div>
